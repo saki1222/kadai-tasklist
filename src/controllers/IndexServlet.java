@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +36,13 @@ public class IndexServlet extends HttpServlet {
         EntityManager em = DAO.createEntityManager();
 
         List<task> task = em.createNamedQuery("getAlltask", task.class).getResultList();
-        response.getWriter().append(Integer.valueOf(task.size()).toString());
 
         em.close();
-}
+
+        request.setAttribute("task", task);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/index.jsp");
+        rd.forward(request, response);
+    }
+
 }
