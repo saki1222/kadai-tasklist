@@ -3,6 +3,7 @@
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <title>Insert title here</title>
           <link rel="stylesheet" href="<c:url value='/css/reset.css' />">
         <link rel="stylesheet" href="<c:url value='/css/style.css' />">
